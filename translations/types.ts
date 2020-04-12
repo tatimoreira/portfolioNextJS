@@ -9,6 +9,5 @@ export type Strings = {
 }
 
 export function isLocale(tested: string): tested is Locale {
-  debugger
   return locales.some(locale => locale === tested)
 }

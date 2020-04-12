@@ -7,9 +7,7 @@ const Navigation = () => {
   const { locale, t } = useTranslation()
   return (
     <ul className="root">
-      <li>
-        <LocaleSwitcher />
-      </li>
+
       <li>
         <Link href="/[lang]" as={`/${locale}`}>
           <a>{t('painting')}</a>
@@ -19,6 +17,9 @@ const Navigation = () => {
         <Link href="/[lang]/artist" as={`/${locale}/artist`}>
           <a>{t('artist')}</a>
         </Link>
+      </li>
+      <li>
+        <LocaleSwitcher />
       </li>
       <style jsx>{`
         .root {
