@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { useRouter } from 'next/router'
 import { locales, languageNames } from '../translations/config'
 import { LocaleContext } from '../context/LocaleContext'
 
 const LocaleSwitcher: React.FC = () => {
   const router = useRouter()
+  debugger
   const { locale } = React.useContext(LocaleContext)
 
-  const handleLocaleChange = React.useCallback(
+  const handleLocaleChange = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
+
       const regex = new RegExp(`^/(${locales.join('|')})`)
       router.push(router.pathname, router.asPath.replace(regex, `/${e.target.value}`))
     },
